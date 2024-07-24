@@ -47,7 +47,7 @@ app.post("/login", async (req,res)=>
     const check =  bcrypt.compareSync(password,founder.password);
       if(check)
       {
-        jwt.sign({userId: founder._id,email: founder.email,name: founder.firstname +" " + founder.lastname},"wertgfxcewferettyjyuiumreereth", async (err,token) =>
+          jwt.sign({userId: founder._id,email: founder.email,name: founder.firstname +" " + founder.lastname},"wertgfxcewferettyjyuiumreereth", async (err,token) =>
           {
              if(err) throw err;
              //console.log("oKKKKKKKKKKK " + token);
@@ -128,8 +128,7 @@ async function getuser(req)
      {
         reject("no tocken");
      }
-  })
-  
+  }) 
 }
 
 app.get("/peoples",async (req,res) =>
@@ -151,11 +150,6 @@ app.get("/messages/:userId",async (req,res) =>
    }).sort({createdAt:1});
    res.json(messagges);
 });
-
-// app.get("/userdata",(res) =>
-// {
-      
-// });
 
 //starts littening to the port 8000 were the data is sent by the clint side.
 const server = app.listen(8000, () =>
@@ -185,23 +179,23 @@ wss.on("connection", (connection,req)=>
   )
   }
 
-  connection.isAlive = true;
+  // connection.isAlive = true;
 
-  connection.timer = setInterval(()=> {
-    connection.ping() ;
-    connection.deathTimer = setTimeout(()=>
-    {
-       connection.isAlive = false;
-      // console.log("dead");
-       connection.terminate();
-       notifyonlinepeople();
-    },2000);
-  },3000);
+  // connection.timer = setInterval(()=> {
+  //   connection.ping();
+  //   connection.deathTimer = setTimeout(()=>
+  //   {
+  //      connection.isAlive = false;
+  //     // console.log("dead");
+  //      connection.terminate();
+  //      notifyonlinepeople();
+  //   },2000);
+  // },3000);
 
-  connection.on("pong",()=>
-  {
-     clearTimeout(connection.deathTimer);
-  })
+  // connection.on("pong",()=>
+  // {
+  //    clearTimeout(connection.deathTimer);
+  // })
 
   console.log("connected");
   const cookies = req.headers.cookie;
@@ -218,7 +212,6 @@ wss.on("connection", (connection,req)=>
          const userId = userdata.userId;
          connection.userId = userId;
          connection.username = username;
-
       });
     }
   }
@@ -247,13 +240,17 @@ wss.on("connection", (connection,req)=>
   });
 
   notifyonlinepeople();
+  setInterval(() =>
+  {
+    notifyonlinepeople();
+  },5000)
 
 });
 
 // wss.on("close",data =>
-//   {
-//    // console.log("disconnected",data);
-//   }
+// {
+//   console.log("disconnected",data);
+// }
 // )
 
 

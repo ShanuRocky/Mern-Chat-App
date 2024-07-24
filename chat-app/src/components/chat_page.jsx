@@ -66,6 +66,7 @@ function Chat_page() {
     const ws = new WebSocket("ws://localhost:8000");
     setws(ws);
     ws.addEventListener("message", handlemessage);
+    //ws.close("ws://localhost:8000",)
   }, []);
 
   useEffect(() => {
@@ -76,6 +77,7 @@ function Chat_page() {
     }
   }, [selected,person_message]);
 
+  //problem///////////
   useEffect(() => {
     axios.get("/peoples").then((peoples) => {
       const offlinepeoples = {};
@@ -89,6 +91,7 @@ function Chat_page() {
     });
   }, [onlinepeople]);
 
+  
   useEffect(() => {
     if (selected !== null) {
       axios.get("/messages/" + selected).then((messages) => {

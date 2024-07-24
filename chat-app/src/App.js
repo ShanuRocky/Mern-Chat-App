@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Login from './components/login';
-import { useEffect, useLayoutEffect, useState } from "react";
+import {useLayoutEffect, useState } from "react";
 import React from 'react';
 import Chat_page from "./components/chat_page";
 import axios from 'axios';
@@ -43,25 +43,6 @@ function App() {
        dark: false,
    });
 
-    const handleonclick1 =  (event) =>
-    {
-      setvalue((prev) => ({
-        ...prev,
-        light:true ,
-        dark: false,
-      }));
-      console.log(value);
-    }
-    
-    const handleonclick2 =  (event) =>
-    {
-      setvalue((prev) => ({
-        ...prev,
-        light:false,
-        dark: true,
-      }));
-      console.log(value);
-    }
 
   return (
    <>

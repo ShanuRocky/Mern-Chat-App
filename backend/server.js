@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import {connections, mongoose} from "mongoose";
+import {mongoose} from "mongoose";
 import Usermodel from "./models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";

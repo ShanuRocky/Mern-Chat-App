@@ -27,7 +27,7 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
-    credentials: false, // Cookies won't be sent with wildcard origins
+    credentials: true, // Cookies won't be sent with wildcard origins
   })
 );
 

@@ -81,7 +81,7 @@ function Login()
           alert(valid);
         }else
         {
-        axios.post("http://localhost:8000/signup",signup) //sending post request to the server.
+        axios.post("https://mern-chat-app-12.onrender.com/signup",signup) //sending post request to the server.
         .then((res) =>
         {
             if(res.data === "success")
@@ -117,7 +117,7 @@ function Login()
           alert("please fill the required fields");
         }else
         {
-        axios.post("http://localhost:8000/login",login)  //sending post request to the server.
+        axios.post("https://mern-chat-app-12.onrender.com/login",login)  //sending post request to the server.
         .then((res) =>
         {
           if(res.data === "success")
@@ -131,7 +131,7 @@ function Login()
         })
         .catch((err) =>
         {
-            alert("error");
+            alert("err");
         })
       }
     }

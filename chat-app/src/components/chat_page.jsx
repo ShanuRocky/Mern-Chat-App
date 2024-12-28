@@ -63,7 +63,7 @@ function Chat_page() {
       })
       .catch(console.log("catch"));
 
-    const ws = new WebSocket("ws://localhost:8000");
+    const ws = new WebSocket("wss://mern-chat-app-12.onrender.com");
     setws(ws);
     ws.addEventListener("message", handlemessage);
     //ws.close("ws://localhost:8000",)
@@ -160,7 +160,6 @@ function Chat_page() {
       //  console.log(messag);
       setperson_message((prev) => {
         const obj = { ...prev };
-        console.log("//1//");
         const messge = {
           type: "send",
           text: messag,

@@ -27,6 +27,8 @@ function App() {
             user:  true
            }));
           // console.log(user);
+        }else{
+           console.log(response.data)
         }
     }
     )

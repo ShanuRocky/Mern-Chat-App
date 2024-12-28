@@ -24,7 +24,7 @@ const saltrounds = 10 ;
 
 // gets the cors request from localhost3000 made by the client side
 app.use(cors({
-  origin:"http://localhost:3000", //defines the origin of the request
+  origin:"https://mern-chat-app-one-sooty.vercel.app/", //defines the origin of the request
   methods: "GET,POST,PUT,DELETE",
   credentials: true,  //enables sending cookies with CORS request. required to maintain session
   }

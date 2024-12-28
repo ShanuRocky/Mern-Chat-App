@@ -23,12 +23,14 @@ app.use(express.json());
 const saltrounds = 10 ;
 
 // gets the cors request from localhost3000 made by the client side
-app.use(cors({
-  origin:"https://mern-chat-app-one-sooty.vercel.app/", //defines the origin of the request
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true,  //enables sending cookies with CORS request. required to maintain session
-  }
-)); //cors - middleware
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: false, // Cookies won't be sent with wildcard origins
+  })
+);
+
 
 //When a request arrives at your server, it might contain cookies sent from the client (browser). 
 //These cookies are typically stored in key-value pairs and used to maintain state information between the client and server.

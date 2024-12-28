@@ -25,7 +25,7 @@ const saltrounds = 10 ;
 // gets the cors request from localhost3000 made by the client side
 app.use(
   cors({
-    origin: "http://localhost:3000/",
+    origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
     credentials: false, // Cookies won't be sent with wildcard origins
   })

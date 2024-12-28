@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { mongoose} from "mongoose";
 import Usermodel from "./models/user.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import  {WebSocketServer } from 'ws'
